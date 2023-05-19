@@ -95,7 +95,7 @@ const  year_result  = ref('');
 
 
 const schema = yup.object({
-  day: yup.number('input number').required().max(31).min(1),
+  day: yup.number().required().max(31).min(1),
   month: yup.number().required().max(12).min(1),
   year: yup.number().required().min(1800)
 });
@@ -118,9 +118,9 @@ function onSubmit() {
 
   store.commit('assignResult')
   
-  day_result.value = result.day.toString()
-  month_result.value = result.month.toString()
-  year_result.value = result.year.toString()
+  day_result.value = result.day
+  month_result.value = result.month
+  year_result.value = result.year
 
   console.log(isNaN(result.day))
 
@@ -129,9 +129,9 @@ function onSubmit() {
 onMounted(() => {
   store.commit('assignResult')
   
-  day_result.value = result.day.toString()
-  month_result.value = result.month.toString()
-  year_result.value = result.year.toString()
+  day_result.value = result.day
+  month_result.value = result.month
+  year_result.value = result.year
 
   console.log(isNaN(result.day))
 
@@ -139,23 +139,6 @@ onMounted(() => {
 })
 
 
-
-
-// onMounted(() => {
-//   onSubmit ()
-// }),
-
-
-// const store = useStore()
-
-
-
-
-
-
-
-
-// creating schema
 
 </script>
 

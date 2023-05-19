@@ -27,15 +27,18 @@ const store = createStore({
         let month = state.date.month
         let year = state.date.year
 
+       let userInputDate  =  `${year}-${month}-${day}`;
+
+       console.log(userInputDate)
         // instance of the date case
         const date = new DateCovert();
 
-        const result = date.calculateAge(year, month, day)
-        console.log(result.ageYears)
+        const result = date.calculateAge(userInputDate)
+        console.log(result)
 
-        state.date_result.day = result.ageDays,
-        state.date_result.month = result.ageMonths,
-        state.date_result.year = result.ageYears,
+        state.date_result.day = result.days,
+        state.date_result.month = result.months,
+        state.date_result.year = result.years,
         console.log('It worked bro !')
       }
     },

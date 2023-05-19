@@ -1,34 +1,40 @@
 export default  class DateCovert {
 
-    calculateAge(day, month, year) {
+    calculateAge(userInputDate) {
 
         
-        const birthDate = new Date(`${year}-${month}-${day}`);
-        const currentDate = new Date();
-  
-        let ageYears = currentDate.getFullYear() - birthDate.getFullYear();
-        let ageMonths = currentDate.getMonth() - birthDate.getMonth();
-        let ageDays = currentDate.getDate() - birthDate.getDate();
+        const birthDate = new Date(userInputDate);
+
+
+        const today = new Date();
+        // const birthDate = new Date(dateString);
       
-        if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
-          ageYears--;
-          ageMonths += 12;
+        let years = today.getFullYear() - birthDate.getFullYear();
+        let months = today.getMonth() - birthDate.getMonth();
+        let days = today.getDate() - birthDate.getDate();
+      
+        // Check if the birth date month and day are ahead of the current month and day
+        if (months < 0 || (months === 0 && days < 0)) {
+          years--;
+          months += 12;
         }
       
-        if (ageDays < 0) {
-          const lastMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-          ageDays += lastMonthDate.getDate();
-          ageMonths--;
+        // Adjust the days if negative
+        if (days < 0) {
+          const monthWith30Days = [3, 5, 8, 10];
+          if (monthWith30Days.includes(today.getMonth() - 1)) {
+            days += 30;
+          } else if (today.getMonth() - 1 === 1) {
+            // February case
+            const isLeapYear = (year) => (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+            days += isLeapYear(today.getFullYear() - 1) ? 29 : 28;
+          } else {
+            days += 31;
+          }
+          months--;
         }
       
-        // const day = birthDate.getDate();
-        // const month = birthDate.toLocaleString('default', { month: 'long' });
-        // const year = birthDate.getFullYear();
-      
-        return { ageYears, ageMonths, ageDays, day, month, year };
-
-
-
+        return { years, months, days };
         
     }
 }
@@ -36,3 +42,34 @@ export default  class DateCovert {
 
 
   
+// function calculateAge(dateString) {
+//     const today = new Date();
+//     const birthDate = new Date(dateString);
+  
+//     let years = today.getFullYear() - birthDate.getFullYear();
+//     let months = today.getMonth() - birthDate.getMonth();
+//     let days = today.getDate() - birthDate.getDate();
+  
+//     // Check if the birth date month and day are ahead of the current month and day
+//     if (months < 0 || (months === 0 && days < 0)) {
+//       years--;
+//       months += 12;
+//     }
+  
+//     // Adjust the days if negative
+//     if (days < 0) {
+//       const monthWith30Days = [3, 5, 8, 10];
+//       if (monthWith30Days.includes(today.getMonth() - 1)) {
+//         days += 30;
+//       } else if (today.getMonth() - 1 === 1) {
+//         // February case
+//         const isLeapYear = (year) => (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+//         days += isLeapYear(today.getFullYear() - 1) ? 29 : 28;
+//       } else {
+//         days += 31;
+//       }
+//       months--;
+//     }
+  
+//     return { years, months, days };
+//   }
