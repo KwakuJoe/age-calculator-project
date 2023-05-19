@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
   <div class="p-5">
     <Form  @submit="onSubmit" :validation-schema="schema">
         <div class="row">
@@ -71,6 +72,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
 </template>
@@ -163,7 +165,7 @@ onMounted(() => {
   background-color: transparent;
   height: 60px;
   font-size: 70px;
-  color: white;
+  /* color: white; */
 }
 
 .age{
