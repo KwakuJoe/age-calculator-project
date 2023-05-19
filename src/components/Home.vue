@@ -5,23 +5,23 @@
         <div class="row">
           <div class="col-lg-4">
             <div class="mb-3">
-              <label for="exampleFieldEmail1" class="form-text fw-bold fw-bold fs-4 my-3">DAY</label>
+              <label class="form-text fw-bold fw-bold fs-4 my-3">DAY</label>
               <Field class="form-control form-control-lg" type="text" name="day" placeholder="20" v-model="day_field"/>
-              <div id="emailHelp" class="form-text fw-bold text-danger"><ErrorMessage name="day" /></div>
+              <div  class="form-text fw-bold text-danger"><ErrorMessage name="day" /></div>
           </div>
           </div>
           <div class="col-lg-4">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-text fw-bold fs-4 my-3">MONTH</label>
+              <label class="form-text fw-bold fs-4 my-3">MONTH</label>
               <Field class="form-control form-control-lg" type="text" name="month" placeholder="05" v-model="month_field"/>
-              <div id="emailHelp" class="form-text fw-bold text-danger"><ErrorMessage name="month" /></div>
+              <div  class="form-text fw-bold text-danger"><ErrorMessage name="month" /></div>
             </div>
           </div>
           <div class="col-lg-4">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-text fw-bold fs-4 my-3">YEAR</label>
+              <label class="form-text fw-bold fs-4 my-3">YEAR</label>
               <Field class="form-control form-control-lg" type="text" name="year" placeholder="2022" v-model="year_field"/>
-              <div id="emailHelp" class="form-text fw-bold text-danger"><ErrorMessage name="year" />.</div>
+              <div  class="form-text fw-bold text-danger"><ErrorMessage name="year" /></div>
             </div>
           </div>
 
